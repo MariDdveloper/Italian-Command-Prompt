@@ -23,17 +23,18 @@ if getattr(sys, "frozen", False):
     BASE_DIR = os.path.dirname(sys.executable)
 else:
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+
+credentials_path = os.path.join(BASE_DIR, "credentials.json")
+account_google_path = os.path.join(BASE_DIR, "accounts_google.txt")
+accounts_path = os.path.join(BASE_DIR, "accounts.txt")
+chiave_crittografia_path = os.path.join(BASE_DIR, "chiave.key")
 # Crea i due file vuoti al primo avvio se non esistono
-for _percorso in (account_google_path, accounts_path):
+for _percorso in (account_google_path, accounts_path, chiave_crittografia_path):
     try:
         if not os.path.exists(_percorso):
             open(_percorso, "a", encoding="utf-8").close()
     except OSError:
         pass
-credentials_path = os.path.join(BASE_DIR, "credentials.json")
-account_google_path = os.path.join(BASE_DIR, "accounts_google.txt")
-accounts_path = os.path.join(BASE_DIR, "accounts.txt")
-chiave_crittografia_path = os.path.join(BASE_DIR, "chiave.key")
 os.environ['OAUTHLIB_RELAX_TOKEN_SCOPE'] = '1'
 inizio = time.monotonic()
 import shlex

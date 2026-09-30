@@ -43,7 +43,8 @@ Clicca il pulsante del tuo computer:
 ---
 
 ## 📖 Cosa puoi fare
-(Qui scrivi i comandi principali con qualche esempio.)
+Puoi manipolare percorsi, processi,
+file e cartelle e altro come un terminale vero e proprio però in italiano
 
 ---
 

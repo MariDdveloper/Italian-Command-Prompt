@@ -23,6 +23,13 @@ if getattr(sys, "frozen", False):
     BASE_DIR = os.path.dirname(sys.executable)
 else:
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
+# Crea i due file vuoti al primo avvio se non esistono
+for _percorso in (account_google_path, accounts_path):
+    try:
+        if not os.path.exists(_percorso):
+            open(_percorso, "a", encoding="utf-8").close()
+    except OSError:
+        pass
 credentials_path = os.path.join(BASE_DIR, "credentials.json")
 account_google_path = os.path.join(BASE_DIR, "accounts_google.txt")
 accounts_path = os.path.join(BASE_DIR, "accounts.txt")

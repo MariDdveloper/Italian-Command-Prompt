@@ -10,9 +10,9 @@ Italian Command Prompt è pensato totalmente per semplificare il terminale per g
 
 Clicca il pulsante del tuo computer:
 
-[![Scarica per Windows](https://img.shields.io/badge/Scarica%20per-Windows-0078D6?style=for-the-badge)](https://github.com/TUO-USERNAME/italian-command-prompt/releases/latest/download/italian-command-prompt-windows.exe)
-[![Scarica per Linux](https://img.shields.io/badge/Scarica%20per-Linux-FCC624?style=for-the-badge&labelColor=333333)](https://github.com/TUO-USERNAME/italian-command-prompt/releases/latest/download/italian-command-prompt-linux.zip)
-[![Scarica per macOS](https://img.shields.io/badge/Scarica%20per-macOS-999999?style=for-the-badge)](https://github.com/TUO-USERNAME/italian-command-prompt/releases/latest/download/italian-command-prompt-macos.zip)
+[![Scarica per Windows](https://img.shields.io/badge/Scarica%20per-Windows-0078D6?style=for-the-badge)](https://github.com/MariDdveloper/italian-command-prompt/releases/latest/download/italian-command-prompt-windows.exe)
+[![Scarica per Linux](https://img.shields.io/badge/Scarica%20per-Linux-FCC624?style=for-the-badge&labelColor=333333)](https://github.com/MariDdveloper/italian-command-prompt/releases/latest/download/italian-command-prompt-linux.zip)
+[![Scarica per macOS](https://img.shields.io/badge/Scarica%20per-macOS-999999?style=for-the-badge)](https://github.com/MariDdveloper/italian-command-prompt/releases/latest/download/italian-command-prompt-macos.zip)
 
 ---
 

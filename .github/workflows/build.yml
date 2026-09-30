@@ -28,6 +28,12 @@ jobs:
           if [ -f requirements.txt ]; then pip install -r requirements.txt; fi
       - name: Crea eseguibile
         run: pyinstaller --onefile --name italian-command-prompt-${{ matrix.name }} main.py
+      - name: Comprimi (macOS e Linux)
+        if: matrix.name != 'windows'
+        run: |
+          cd dist
+          zip italian-command-prompt-${{ matrix.name }}.zip italian-command-prompt-${{ matrix.name }}
+          rm italian-command-prompt-${{ matrix.name }}
       - name: Allega alla release
         uses: softprops/action-gh-release@v2
         with:

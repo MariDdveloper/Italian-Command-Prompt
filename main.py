@@ -7921,7 +7921,7 @@ def crea_account():
     os.system('cls' if os.name == 'nt' else 'clear')
     scelta1 = input(f"{VERDE_MATRIX}VUOI CREARE ACCOUNT  CON GOOGLE O CON EMAIL? (rispondere con google o email) ").strip().lower()
     if scelta1== "google":
-        flow = InstalledAppFlow.from_client_secrets_file(CLIENT_CONFIG, scopes=["openid", "profile", "email"])
+        flow = InstalledAppFlow.from_client_config(CLIENT_CONFIG, scopes=["openid", "profile", "email"])
         flow.run_local_server(port=0, success_message="Grazie, continua sul terminale")
         user_info = flow.authorized_session().get("https://www.googleapis.com/oauth2/v3/userinfo").json()
         ids = uuid.uuid4()
@@ -7949,7 +7949,7 @@ def login():
     os.system('cls' if os.name == 'nt' else 'clear')
     scela1 = input(f"{VERDE_MATRIX}VUOI FARE LOGIN CON GOOGLE O CON EMAIL? (rispondere con google o con email) ").strip().lower()
     if scela1 == "google":
-        flow = InstalledAppFlow.from_client_secrets_file(CLIENT_CONFIG, scopes=["openid", "profile", "email"])
+        flow = InstalledAppFlow.from_client_config(CLIENT_CONFIG, scopes=["openid", "profile", "email"])
         flow.run_local_server(port=0, success_message="Grazie per aver fatto il login! Continua sul temrinale")
         procedi()
     elif scela1 == "email":

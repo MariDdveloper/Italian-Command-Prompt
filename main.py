@@ -23,8 +23,10 @@ if getattr(sys, "frozen", False):
     BASE_DIR = os.path.dirname(sys.executable)
 else:
     BASE_DIR = os.path.dirname(os.path.abspath(__file__))
-
-credentials_path = os.path.join(BASE_DIR, "credentials.json")
+if getattr(sys, "frozen", False):
+    credentials_path = os.path.join(sys._MEIPASS, "credentials.json")
+else:
+    credentials_path = os.path.join(BASE_DIR, "credentials.json")
 account_google_path = os.path.join(BASE_DIR, "accounts_google.txt")
 accounts_path = os.path.join(BASE_DIR, "accounts.txt")
 chiave_crittografia_path = os.path.join(BASE_DIR, "chiave.key")

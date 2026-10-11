@@ -7942,8 +7942,7 @@ def crea_account():
                 with open(accounts_path, mode="a", encoding="utf-8") as f:
                     f.write(f"USERNAME: {username}\nEMAIL: {email}\n---------------------------------------------------------------------------------\n")
                 procedi()
-                else:
-                    print(f"{ROSSO_MATRIX}ACCOUNT GIA ESISTENTE!")
+                
         else:
             print(f"{ROSSO_MATRIX}EMAIL NON VALIDA")
     else:

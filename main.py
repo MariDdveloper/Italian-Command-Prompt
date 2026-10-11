@@ -7924,21 +7924,24 @@ def crea_account():
         flow = InstalledAppFlow.from_client_config(CLIENT_CONFIG, scopes=["openid", "profile", "email"])
         flow.run_local_server(port=0, success_message="Grazie, continua sul terminale")
         user_info = flow.authorized_session().get("https://www.googleapis.com/oauth2/v3/userinfo").json()
-        ids = uuid.uuid4()
-        procedi()
+        
+        
         with open(account_google_path, mode="a", encoding="utf-8") as f:
             f.write(f"NOME: {user_info.get('name')}\nEMAIL: {user_info.get('email')}\n---------------------------------------------------------------------------\n")
+        procedi()
     elif scelta1 == "email":
         print()
         email = input(f"{VERDE_MATRIX}INSERIRE EMAIL: ").strip()
         username = input(f"{VERDE_MATRIX}INSERIRE USERNAME: ").strip()
         if re.match(r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}", email):
             with open(accounts_path, mode="r", encoding="utf-8") as a:
-                righr = a.read().strip()
-                if email and username not in righr:
-                    with open(accounts_path, mode="a", encoding="utf-8") as f:
-                        f.write(f"USERNAME: {username}\nEMAIL: {email}\n---------------------------------------------------------------------------------\n")
-                        procedi()
+                righe = [r.strip() for r in a.read().splitlines()]
+            if f"USERNAME: {username}" in righe or f"EMAIL: {email}" in righe:
+                print(f"{ROSSO_MATRIX}ACCOUNT GIA ESISTENTE!")
+            else:
+                with open(accounts_path, mode="a", encoding="utf-8") as f:
+                    f.write(f"USERNAME: {username}\nEMAIL: {email}\n---------------------------------------------------------------------------------\n")
+                procedi()
                 else:
                     print(f"{ROSSO_MATRIX}ACCOUNT GIA ESISTENTE!")
         else:
@@ -7958,10 +7961,10 @@ def login():
         username = input(f"{VERDE_MATRIX}INSERIRE USERNAME: ").strip()
         if re.match(r"^[a-zA-Z0-9._%+-]+@[a-zA-Z0-9.-]+\.[a-zA-Z]{2,}", email):
             with open(accounts_path, mode="r", encoding="utf-8") as d:
-                righe = d.read().strip()
-                if email and username in righe:
-                    procedi()
-                else:
+                righe = [r.strip() for r in d.read().splitlines()]
+            if f"USERNAME: {username}" in righe and f"EMAIL: {email}" in righe:
+                procedi()
+            else:
                     print(f"{ROSSO_MATRIX}ACCOUNT INESISTENTE")
         else:
             print(f"{ROSSO_MATRIX}EMAIL NON VALIDA")
